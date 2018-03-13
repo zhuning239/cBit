@@ -2,7 +2,7 @@
 R
 modified from liusen
 load dependency
-"mbit": "file:../pxt-mbit"
+"cbit": "file:../pxt-cbit"
 */
 
 
@@ -349,7 +349,7 @@ namespace cbit_输入类 {
 
     }
 
-    //% blockId=mbit_Button block="Button|pin %pin|value %value"
+    //% blockId=cbit_Button block="Button|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
     //% color="#808080"
@@ -381,7 +381,7 @@ namespace cbit_音乐类 {
         Beep
     }
 
-    //% blockId=mbit_Buzzer block="Buzzer|pin %pin|value %value"
+    //% blockId=cbit_Buzzer block="Buzzer|pin %pin|value %value"
     //% weight=100
     //% blockGap=10 
     //% color="#D2691E"
@@ -415,7 +415,7 @@ namespace cbit_电机类 {
 
     }
 
-    //% blockId=mbit_Servo block="Servo|pin %pin|value %value"
+    //% blockId=cbit_Servo block="Servo|pin %pin|value %value"
     //% weight=100
     //% blockGap=10
     //% color="#0000CD"
