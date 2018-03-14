@@ -38,12 +38,12 @@ namespace cbit_显示类 {
         ON =1
     }
 
-    //% blockId=cbit_LED1 block="LED1|pin %pin|value %value"
+    //% blockId=cbit_LED1 block="LED灯|管脚 %pin|值 %value"
     //% weight=5
     //% blockGap=8
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    export function LED灯显示(pin: DigitalPin, value: enLED1): void {
+    export function LED1(pin: DigitalPin, value: enLED1): void {
 
         pins.digitalWritePin(pin, value);
 
