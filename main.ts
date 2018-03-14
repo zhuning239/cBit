@@ -43,7 +43,7 @@ namespace cbit_显示类 {
     //% blockGap=8
     //% color="#C814B8"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=1
-    export function LED1(pin: DigitalPin, value: enLED1): void {
+    export function LED灯显示(pin: DigitalPin, value: enLED1): void {
 
         pins.digitalWritePin(pin, value);
 
