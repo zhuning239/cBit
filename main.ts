@@ -501,9 +501,9 @@ namespace cbit_小车类 {
     export enum enPos {
 
         //% blockId="LeftState" block="左边状态"
-        LeftState = 0,
+        LeftState = 1,
         //% blockId="RightState" block="右边状态"
-        RightState = 1
+        RightState = 0
     }
 
     export enum enLineState {
