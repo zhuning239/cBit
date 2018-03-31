@@ -964,22 +964,6 @@ namespace cbit_小车类 {
 
         switch (direct) {
             case enPos.LeftState: {
-                if (pins.analogReadPin(AnalogPin.P2) < 500) {
-                    if (value == enLineState.White) {
-                        temp = true;
-                    }
-                    setPwm(6, 0, 4095);
-                }
-                else {
-                    if (value == enLineState.Black) {
-                        temp = true;
-                    }
-                    setPwm(6, 0, 0);
-                }
-                break;
-            }
-
-            case enPos.RightState: {
                 if (pins.analogReadPin(AnalogPin.P1) < 500) {
                     if (value == enLineState.White) {
                         temp = true;
@@ -991,6 +975,22 @@ namespace cbit_小车类 {
                         temp = true;
                     }
                     setPwm(7, 0, 0);
+                }
+                break;
+            }
+
+            case enPos.RightState: {
+                if (pins.analogReadPin(AnalogPin.P2) < 500) {
+                    if (value == enLineState.White) {
+                        temp = true;
+                    }
+                    setPwm(6, 0, 4095);
+                }
+                else {
+                    if (value == enLineState.Black) {
+                        temp = true;
+                    }
+                    setPwm(6, 0, 0);
                 }
                 break;
             }
