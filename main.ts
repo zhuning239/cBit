@@ -375,9 +375,9 @@ namespace cbit_输入类 {
 namespace cbit_音乐类 {
     export enum enBuzzer {
 
-        //% blockId="NoBeep" block="不响"
+        //% blockId="NoBeep" block="响"
         NoBeep = 0,
-        //% blockId="Beep" block="响"
+        //% blockId="Beep" block="不响"
         Beep
     }
 
