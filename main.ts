@@ -647,8 +647,8 @@ namespace cbit_小车类 {
         setPwm(12, 0, speed);
         setPwm(13, 0, 0);
 
-        setPwm(15, 0, 0);
-        setPwm(14, 0, 0);
+        //setPwm(15, 0, 0);
+        //setPwm(14, 0, 0);
     }
    function Left_F_run(speed: number) {
 
@@ -663,8 +663,8 @@ namespace cbit_小车类 {
         setPwm(12, 0, 0);
         setPwm(13, 0, speed);
 
-        setPwm(15, 0, 0);
-        setPwm(14, 0, 0);
+        //setPwm(15, 0, 0);
+        //setPwm(14, 0, 0);
     }    
      function Right_Z_run(speed: number) {
 
@@ -676,8 +676,8 @@ namespace cbit_小车类 {
             speed = 350
         }
 
-        setPwm(12, 0, 0);
-        setPwm(13, 0, 0);
+       // setPwm(12, 0, 0);
+       // setPwm(13, 0, 0);
 
         setPwm(15, 0, speed);
         setPwm(14, 0, 0);
@@ -692,8 +692,8 @@ namespace cbit_小车类 {
             speed = 350
         }
 
-        setPwm(12, 0, 0);
-        setPwm(13, 0, 0);
+       // setPwm(12, 0, 0);
+       // setPwm(13, 0, 0);
 
         setPwm(15, 0, 0);
         setPwm(14, 0, speed);
