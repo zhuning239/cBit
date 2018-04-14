@@ -543,7 +543,15 @@ namespace cbit_小车类 {
         //% blockId="Car_SpinLeft" block="原地左旋"
         Car_SpinLeft = 6,
         //% blockId="Car_SpinRight" block="原地右旋"
-        Car_SpinRight = 7
+        Car_SpinRight = 7,
+        //% blockId="Right_Z_Motor" block="右侧电机正转"
+        Right_Z_Motor = 8,
+        //% blockId="Right_F_Motor" block="右侧电机反转"
+        Right_F_Motor = 9,
+        //% blockId="Left_Z_Motor" block="左侧电机正转"
+        Left_Z_Motor = 10,
+        //% blockId="Left_F_Motor" block="左侧电机反转"
+        Left_Z_Motor = 11            
     }
 
     function i2cwrite(addr: number, reg: number, value: number) {
@@ -624,7 +632,70 @@ namespace cbit_小车类 {
        // pins.analogWritePin(AnalogPin.P0, speed);//速度控制
        // pins.digitalWritePin(DigitalPin.P8, 0);
     }
+   function Left_Z_run(speed: number) {
 
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350) {
+            speed = 350
+        }
+
+        setPwm(12, 0, speed);
+        setPwm(13, 0, 0);
+
+        //setPwm(15, 0, speed);
+        //setPwm(14, 0, 0);
+    }
+   function Left_F_run(speed: number) {
+
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350) {
+            speed = 350
+        }
+
+        setPwm(12, 0, 0);
+        setPwm(13, 0, speed);
+
+        //setPwm(15, 0, speed);
+        //setPwm(14, 0, 0);
+    }    
+     function Right_Z_run(speed: number) {
+
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350) {
+            speed = 350
+        }
+
+        //setPwm(12, 0, speed);
+        //setPwm(13, 0, 0);
+
+        setPwm(15, 0, speed);
+        setPwm(14, 0, 0);
+    }
+     function Right_F_run(speed: number) {
+
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350) {
+            speed = 350
+        }
+
+        //setPwm(12, 0, speed);
+        //setPwm(13, 0, 0);
+
+        setPwm(15, 0, 0);
+        setPwm(14, 0, speed);
+    }    
     function Car_back(speed: number) {
 
         speed = speed * 16; // map 350 to 4096
@@ -1031,4 +1102,18 @@ namespace cbit_小车类 {
             case CarState.Car_SpinRight: Car_spinright(speed); break;
         }
     }
+    //% blockId=cbit_AloneCtrlSpeed block="单独电机|%index|速度 %speed"
+    //% weight=91
+    //% blockGap=10
+    //% speed.min=0 speed.max=255
+    //% color="#006400"
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
+    export function AloneCtrlSpeed(index: CarState, speed: number): void {
+        switch (index) {
+            case CarState.Right_Z_Motor: Right_Z_run(speed); break;
+            case CarState.Right_F_Motor: Right_F_run(speed); break;
+            case CarState.Left_Z_Motor: Left_Z_run(speed); break;
+            case CarState.Left_F_Motor: Left_F_run(speed); break;
+        }
+    }    
 }
