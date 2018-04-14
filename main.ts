@@ -543,15 +543,17 @@ namespace cbit_小车类 {
         //% blockId="Car_SpinLeft" block="原地左旋"
         Car_SpinLeft = 6,
         //% blockId="Car_SpinRight" block="原地右旋"
-        Car_SpinRight = 7,
+        Car_SpinRight = 7         
+    }
+    export enum AloneState {
         //% blockId="Right_Z_Motor" block="右侧电机正转"
-        Right_Z_Motor = 8,
+        Right_Z_Motor = 1,
         //% blockId="Right_F_Motor" block="右侧电机反转"
-        Right_F_Motor = 9,
+        Right_F_Motor = 2,
         //% blockId="Left_Z_Motor" block="左侧电机正转"
-        Left_Z_Motor = 10,
+        Left_Z_Motor = 3,
         //% blockId="Left_F_Motor" block="左侧电机反转"
-        Left_Z_Motor = 11            
+        Left_Z_Motor = 4       
     }
 
     function i2cwrite(addr: number, reg: number, value: number) {
@@ -1108,12 +1110,12 @@ namespace cbit_小车类 {
     //% speed.min=0 speed.max=255
     //% color="#006400"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=10
-    export function AloneCtrlSpeed(index: CarState, speed: number): void {
+    export function AloneCtrlSpeed(index: AloneState, speed: number): void {
         switch (index) {
-            case CarState.Right_Z_Motor: Right_Z_run(speed); break;
-            case CarState.Right_F_Motor: Right_F_run(speed); break;
-            case CarState.Left_Z_Motor: Left_Z_run(speed); break;
-            case CarState.Left_F_Motor: Left_F_run(speed); break;
+            case AloneState.Right_Z_Motor: Right_Z_run(speed); break;
+            case AloneState.Right_F_Motor: Right_F_run(speed); break;
+            case AloneState.Left_Z_Motor: Left_Z_run(speed); break;
+            case AloneState.Left_F_Motor: Left_F_run(speed); break;
         }
     }    
 }
