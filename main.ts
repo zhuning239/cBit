@@ -553,7 +553,7 @@ namespace cbit_小车类 {
         //% blockId="Left_Z_Motor" block="左侧电机正转"
         Left_Z_Motor = 3,
         //% blockId="Left_F_Motor" block="左侧电机反转"
-        Left_Z_Motor = 4       
+        Left_F_Motor = 4       
     }
 
     function i2cwrite(addr: number, reg: number, value: number) {
