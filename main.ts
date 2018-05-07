@@ -318,30 +318,28 @@ namespace cbit_输入类 {
         let z = pins.digitalReadPin(pin3);
         let now_state = enRocker.Nostate;
 
-        if (x < 20) // 上
+        if (x <= 20) // 上
         {
 
             now_state = enRocker.Up;
 
         }
-        else if (x > 1000) //
+        if (x >= 1000) //
         {
 
             now_state = enRocker.Down;
         }
-        else  // 左右
+        if (y <= 50) //右
         {
-            if (y < 50) //右
-            {
-                now_state = enRocker.Right;
-            }
-            else if (y > 1000) //左
-            {
-                now_state = enRocker.Left;
-            }
+            now_state = enRocker.Right;
         }
-        if (z < 20)
+        if (y >= 1000) //左
+        {
+            now_state = enRocker.Left;
+        }
+        if (z <= 20)
             now_state = enRocker.Press;
+        
         if (now_state == value)
             return true;
         else
