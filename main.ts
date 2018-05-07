@@ -310,12 +310,12 @@ namespace cbit_输入类 {
     //% blockGap=10
     //% color="#808080"
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=6
-    export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: DigitalPin, value: enRocker): boolean {
+    export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value: enRocker): boolean {
 
         pins.setPull(pin3, PinPullMode.PullUp);
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
-        let z = pins.digitalReadPin(pin3);
+        let z = pins.analogReadPin(pin3);
         let now_state = enRocker.Nostate;
 
         if (x <= 20) // 上
