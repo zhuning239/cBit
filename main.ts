@@ -1,4 +1,4 @@
-﻿/*
+/*
 R
 modified from liusen
 load dependency
