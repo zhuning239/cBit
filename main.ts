@@ -312,7 +312,7 @@ namespace cbit_输入类 {
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=6
     export function Rocker(pin1: AnalogPin, pin2: AnalogPin, pin3: AnalogPin, value: enRocker): boolean {
 
-        pins.setPull(pin3, PinPullMode.PullUp);
+        //pins.setPull(pin3, PinPullMode.PullUp);
         let x = pins.analogReadPin(pin1);
         let y = pins.analogReadPin(pin2);
         let z = pins.analogReadPin(pin3);
