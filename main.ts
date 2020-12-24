@@ -523,9 +523,7 @@ namespace cbit_小车类 {
     
     export enum enServo {
         
-        S1 = 1,
-        S2,
-        S3
+        S1 = 1
     }
     export enum CarState {
         //% blockId="Car_Run" block="前行"
@@ -551,7 +549,11 @@ namespace cbit_小车类 {
         //% blockId="Left_Z_Motor" block="左侧电机正转"
         Left_Z_Motor = 3,
         //% blockId="Left_F_Motor" block="左侧电机反转"
-        Left_F_Motor = 4       
+        Left_F_Motor = 4,
+        //% blockId="Fan_Z_Motor" block="风扇电机正转"
+        Fan_Z_Motor = 5,
+        //% blockId="Fan_F_Motor" block="风扇电机反转"
+        Fan_F_Motor = 6
     }
 
     function i2cwrite(addr: number, reg: number, value: number) {
@@ -695,7 +697,32 @@ namespace cbit_小车类 {
 
         setPwm(15, 0, 0);
         setPwm(14, 0, speed);
-    }    
+    }  
+     function Fan_Z_run(speed: number) {
+
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350) {
+            speed = 350
+        }
+
+        setPwm(4, 0, speed);
+        setPwm(5, 0, 0);
+    }
+      function Fan_F_run(speed: number) {
+
+        speed = speed * 16; // map 350 to 4096
+        if (speed >= 4096) {
+            speed = 4095
+        }
+        if (speed <= 350) {
+            speed = 350
+        }
+        setPwm(4, 0, 0);
+        setPwm(5, 0, speed);   
+    }
     function Car_back(speed: number) {
 
         speed = speed * 16; // map 350 to 4096
@@ -1114,6 +1141,9 @@ namespace cbit_小车类 {
             case AloneState.Right_F_Motor: Right_F_run(speed); break;
             case AloneState.Left_Z_Motor: Left_Z_run(speed); break;
             case AloneState.Left_F_Motor: Left_F_run(speed); break;
+            case AloneState.Fan_Z_Motor: Fan_Z_run(speed);break;
+            case AloneState.Fan_F_Motor: Fan_F_run(speed);break;
+            
         }
     }    
 }
