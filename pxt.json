@@ -1,7 +1,7 @@
 {
     "name": "cBit",
     "version": "1.1.0",
-    "description": "Extension for ZYRobot micro:bit",
+    "description": "Extension for Makerobo micro:bit",
     "license": "MIT",
     "dependencies": {
         "core": "*",
